@@ -9,7 +9,7 @@ from kafka import KafkaProducer
 
 def main():
     producer = KafkaProducer(bootstrap_servers='localhost:9093')
-    for _ in range(100):
+    while True:
         data = json.dumps({
             'a_int': random.randint(0, 1_000_000),
             'a_str': str(uuid.uuid4()),
