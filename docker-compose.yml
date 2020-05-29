@@ -27,6 +27,12 @@ services:
       - zookeeper
   cassandra:
     image: cassandra:3.11.6
+    volumes:
+      - ./KafkaTrigger.yml:/etc/cassandra/triggers/KafkaTrigger.yml
+      - ./cassandra-trigger-0.0.1-SNAPSHOT.jar:/etc/cassandra/triggers/trigger.jar
+    command: ["cassandra", "-f"]
     ports:
         - "7000:7000"
         - "9042:9042"
+    depends_on:
+      - kafka
