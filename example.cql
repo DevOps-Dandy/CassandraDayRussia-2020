@@ -11,3 +11,6 @@ CREATE TABLE a_kayspace.a_table (
    a_str text, 
    a_bool boolean, 
    PRIMARY KEY (a_int, a_str));
+
+use a_kayspace;
+SELECT count(*) FROM a_kayspace.a_table;
